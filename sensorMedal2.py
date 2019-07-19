@@ -51,11 +51,16 @@ while True:
         sleep(interval)
         continue
         
-    # 受信データについてBLEデバイス毎の処理
+    # 受信データからセンサメダル2のデバイスを取得
+    sensorMedal2Device = None
     for dev in devices:
-        if sensorMedal2Address != dev.addr :
-            continue
-        print("Device %s (%s), RSSI=%d dB" % (dev.addr, dev.addrType, dev.rssi))
+        if sensorMedal2Address == dev.addr :
+            sensorMedal2Device = dev;
+    
+    # センサメダル2のデバイスが取得できない場合はスキャンに戻る
+    if sensorMedal2Device is None: continue
+    
+    print("Device %s (%s), RSSI=%d dB" % (sensorMedal2Device.addr, sensorMedal2Device.addrType, sensorMedal2Device.rssi))
 
 
 
