@@ -32,6 +32,7 @@ from time import sleep
 import json
 from collections import OrderedDict
 import pprint
+import SensorMedal2
 
 # 設定の読み込み
 with open("config.json","r") as f:
@@ -60,6 +61,7 @@ while True:
     # センサメダル2のデバイスが取得できない場合はスキャンに戻る
     if sensorMedal2Device is None: continue
     
+    sensorMedal2 = SensorMedal2.SensorMedal2(sensorMedal2Device)
     print("Device %s (%s), RSSI=%d dB" % (sensorMedal2Device.addr, sensorMedal2Device.addrType, sensorMedal2Device.rssi))
 
 
