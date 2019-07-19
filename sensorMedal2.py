@@ -61,8 +61,34 @@ while True:
     # センサメダル2のデバイスが取得できない場合はスキャンに戻る
     if sensorMedal2Device is None: continue
     
+    # センサメダル2からデータを取得する
     sensorMedal2 = SensorMedal2.SensorMedal2(sensorMedal2Device)
-    print("Device %s (%s), RSSI=%d dB" % (sensorMedal2Device.addr, sensorMedal2Device.addrType, sensorMedal2Device.rssi))
+    sensors = sensorMedal2.getInfo()
+    
+    # センサー情報が取得できない場合はスキャンに戻る
+    if sensors is None: continue
+    
+    print('    ID            =',sensors['ID'])
+    print('    SEQ           =',sensors['SEQ'])
+    print('    Temperature   =',round(sensors['Temperature'],2),'℃')
+    print('    Humidity      =',round(sensors['Humidity'],2),'%')
+    print('    Pressure      =',round(sensors['Pressure'],3),'hPa')
+    print('    Illuminance   =',round(sensors['Illuminance'],1),'lx')
+    print('    Accelerometer =',round(sensors['Accelerometer'],3),'g (',\
+                                round(sensors['Accelerometer X'],3),\
+                                round(sensors['Accelerometer Y'],3),\
+                                round(sensors['Accelerometer Z'],3),'g)')
+    print('    Geomagnetic   =',round(sensors['Geomagnetic'],1),'uT (',\
+                                round(sensors['Geomagnetic X'],1),\
+                                round(sensors['Geomagnetic Y'],1),\
+                                round(sensors['Geomagnetic Z'],1),'uT)')
+    print('    Magnetic      =',sensors['Magnetic'])
+    print('    Steps         =',sensors['Steps'],'歩')
+    print('    Battery Level =',sensors['Battery Level'],'%')
+    print('    RSSI          =',sensors['RSSI'],'dB')
+    print('===================')
+    
+    
 
 
 
