@@ -35,7 +35,7 @@ class SensorMedal2 :
                                  + sensors['Geomagnetic Z'] ** 2) ** 0.5
         sensors['Pressure'] = self.payval(22,3) / 2048
         sensors['Illuminance'] = self.payval(25,2) / 1.2
-        sensors['Magnetic'] = hex(self.payval(27))
+        sensors['Magnetic'] = self.payval(27)
         sensors['Steps'] = self.payval(28,2)
         sensors['Battery Level'] = self.payval(30)
         sensors['RSSI'] = self.device.rssi
