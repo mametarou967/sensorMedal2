@@ -24,7 +24,7 @@
 #   BLE Logger for Rohm SensorMedal-EVK-002
 
 SCAN_INTERVAL_SEC = 3 # 動作間隔
-SEND_INTERVAL_SEC = 300 # AWS送信間隔
+# SEND_INTERVAL_SEC = 300 # AWS送信間隔
 
 CLIENT_ID = "test_client_id"
 PORT = 8883
@@ -59,6 +59,7 @@ with open("config.json","r") as f:
     sensorMedal2Address = config['SensorMedal2']['Address']
     ENDPOINT = config['AWS']['Endpoint']
     TOPIC = config['AWS']['Topic']
+    SEND_INTERVAL_SEC = config['AWS']['SendIntervalSec'] # AWS送信間隔
 # bluetoothのscan
 scanner = btle.Scanner()
 # AWSの接続

@@ -1,5 +1,10 @@
 {
 	"SensorMedal2":{
 		"Address" : "XX:XX:XX:XX:XX:XX"
+	},
+	"AWS":{
+		"Endpoint" : "XXXXXXXXXXXXXX-ats.iot.XX-XX-X.amazonaws.com",
+		"Topic" : "raspberry_pi/test",
+		"SendIntervalSec" : 300
 	}
 }
